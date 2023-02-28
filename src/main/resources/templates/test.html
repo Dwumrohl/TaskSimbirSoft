@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <th>No</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Telephone</th>
+    <th>Action</th>
+
+    <th:forEach var="contact" items="${listClient}" varStatus="status">
+        <tr>
+            <td>${client.name}</td>
+            <td>${contact.email}</td>
+            <td>${contact.phoneNumber}</td>
+        </tr>
+    </th:forEach>
+</table>
+
+</body>
+</html>
