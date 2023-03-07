@@ -1,23 +1,24 @@
 package com.example.TaskSimbirSoft.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "CLIENT_METER_READINGS", schema = "app_shema")
+@Table(name = "client_meter_readings", schema = "app_shema")
 public class ClientMeterReading {
     @Id
-    @Column(name = "\"CLIENT_METER_READINGS_ID\"", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "client_meter_readings_id", nullable = false)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CLIENT_ID")
+    @JoinColumn(name = "client_id")
     private Client client;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "\"METER_READINGS_ID\"")
+    @JoinColumn(name = "meter_readings_id")
     private MeterReading meterReadings;
 
-    @Column(name = "\"DATE\"")
+    @Column(name = "date")
     private LocalDate date;
 
     public LocalDate getDate() {

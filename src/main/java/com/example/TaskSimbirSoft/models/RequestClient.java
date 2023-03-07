@@ -1,23 +1,21 @@
 package com.example.TaskSimbirSoft.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "REQUEST_CLIENT", schema = "app_shema")
+@Table(name = "request_client", schema = "app_shema")
 public class RequestClient {
     @Id
-    @Column(name = "\"REQUEST_CLIENT_ID\"", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "request_client_id", nullable = false)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CLIENT_ID")
+    @JoinColumn(name = "client_id")
     private Client client;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "\"REQUEST_ID\"")
+    @JoinColumn(name = "request_id")
     private Request request;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CLIENT_ID")
 
     public Client getClient() {
         return client;

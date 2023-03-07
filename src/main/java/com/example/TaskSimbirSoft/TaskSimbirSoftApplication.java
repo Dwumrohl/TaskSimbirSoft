@@ -1,24 +1,41 @@
 package com.example.TaskSimbirSoft;
 
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+@SpringBootApplication
+@EnableJpaRepositories
+//@EntityScan(basePackages = {"com.example.TaskSimbirSoft.models"})
 public class TaskSimbirSoftApplication {
 
-	@Bean
-	public DataSource getDataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/housing_and_utilities_app");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("12345");
-		return dataSource;
+	@Configuration
+	public class JpaConfig {
+
+		@Bean
+		public DataSource dataSource()
+		{
+			DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+			dataSourceBuilder.driverClassName("org.postgresql.Driver");
+			dataSourceBuilder.url("jdbc:postgresql://localhost:5432/housing_and_utilities_app");
+			dataSourceBuilder.username("postgres");
+			dataSourceBuilder.password("12345");
+			return dataSourceBuilder.build();
+		}
 	}
 
 

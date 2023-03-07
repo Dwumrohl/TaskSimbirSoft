@@ -1,36 +1,34 @@
 package com.example.TaskSimbirSoft.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "REQUEST", schema = "app_shema")
+@Table(name = "request", schema = "app_shema")
 public class Request {
     @Id
-    @Column(name = "\"REQUEST_ID\"", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "request_id", nullable = false)
     private Long id;
 
-    @Column(name = "\"TYPE\"")
+    @Column(name = "type")
     private Integer type;
 
-    @Lob
-    @Column(name = "\"NAME\"")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "\"DATE\"")
+    @Column(name = "date")
     private LocalDate date;
 
-    @Lob
-    @Column(name = "\"ADRESS\"")
-    private String adress;
+    @Column(name = "address")
+    private String address;
 
-    @Lob
-    @Column(name = "\"COMMENT\"")
+    @Column(name = "comment")
     private String comment;
 
-    @Column(name = "\"STATUS\"")
+    @Column(name = "status")
     private Integer status;
 
     @OneToMany(mappedBy = "request")
@@ -60,12 +58,12 @@ public class Request {
         this.comment = comment;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public LocalDate getDate() {

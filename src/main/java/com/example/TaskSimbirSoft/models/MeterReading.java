@@ -1,20 +1,21 @@
 package com.example.TaskSimbirSoft.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "METER_READINGS", schema = "app_shema")
+@Table(name = "meter_readings", schema = "app_shema")
 public class MeterReading {
     @Id
-    @Column(name = "\"METER_READINGS_ID\"", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "meter_readings_id", nullable = false)
     private Long id;
 
-    @Column(name = "\"NAME\"", length = 1)
+    @Column(name = "name", length = 1)
     private String name;
 
-    @Column(name = "\"DATA\"")
+    @Column(name = "data")
     private Long data;
 
     @OneToMany(mappedBy = "meterReadings")

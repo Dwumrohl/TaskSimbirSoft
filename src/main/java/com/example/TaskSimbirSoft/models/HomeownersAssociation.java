@@ -1,24 +1,24 @@
 package com.example.TaskSimbirSoft.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "\"HOMEOWNERS_ASSOCIATION\"", schema = "app_shema")
+@Table(name = "homeowners_association", schema = "app_shema")
 public class HomeownersAssociation {
     @Id
-    @Column(name = "\"HA_ID\"", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ha_id", nullable = false)
     private Long id;
 
-    @Column(name = "\"CLIENT_ID\"")
+    @Column(name = "client_id")
     private Long clientId;
 
-    @Lob
-    @Column(name = "\"LEGAL_ADDRES\"")
-    private String legalAddres;
+    @Column(name = "legal_address")
+    private String legalAddress;
 
-    @Column(name = "\"PHONE_NUMBER\"", length = 1)
+    @Column(name = "phone_number", length = 1)
     private String phoneNumber;
 
     @OneToMany(mappedBy = "ha")
@@ -40,12 +40,12 @@ public class HomeownersAssociation {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLegalAddres() {
-        return legalAddres;
+    public String getLegalAddress() {
+        return legalAddress;
     }
 
-    public void setLegalAddres(String legalAddres) {
-        this.legalAddres = legalAddres;
+    public void setLegalAddress(String legalAddress) {
+        this.legalAddress = legalAddress;
     }
 
     public Long getClientId() {
