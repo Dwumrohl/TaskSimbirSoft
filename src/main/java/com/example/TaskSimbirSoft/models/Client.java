@@ -1,20 +1,21 @@
 package com.example.TaskSimbirSoft.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
 @Builder
 @NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
 @Entity
 @Table(name = "client", schema = "app_shema")
@@ -24,6 +25,9 @@ public class Client implements UserDetails {
     @Column(name = "client_id", nullable = false)
     private Long id;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "phone_number", length = 11)
     private String phoneNumber;
 
@@ -32,6 +36,9 @@ public class Client implements UserDetails {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "role")
+    private String role;
 
     @Column(name = "surname")
     private String surname;
@@ -54,10 +61,9 @@ public class Client implements UserDetails {
     @OneToMany(mappedBy = "client")
     private Set<RequestClient> requestClients = new LinkedHashSet<>();
 
-//    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-//    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name="client_id"))
-//    @Enumerated(EnumType.STRING)
-//    private Role role;
+    public Client(Client client) {
+    }
+
 //
 //
 
@@ -152,36 +158,36 @@ public class Client implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return List.of(new SimpleGrantedAuthority(role));
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

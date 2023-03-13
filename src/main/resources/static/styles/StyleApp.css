@@ -1,0 +1,101 @@
+body{
+	font-family: 'Roboto';
+	font-style: normal;
+}
+
+form{
+	width: 860px;
+}
+#form_background{
+	background: #EDEAEA;
+}
+
+#nameForm{
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 38px;
+}
+
+#address{
+	word-wrap: break-word;
+}
+
+#address div{
+	display:inline-block;
+	margin-right: 10px;
+}
+
+#address label{
+	
+	font-size: 18px;
+	line-height: 21px;
+	color: #000000;
+}
+
+#address input{
+	height: 30px;
+	
+	background: #C4C4C4;
+	border-radius: 5px;
+}
+
+.AddressThirdWidth{
+	width: 130px;
+}
+.AddressSecondWidth{
+	width: 215px;
+}
+.AddressFirstWidth{
+	width: 350px;
+}
+
+#comment{
+	width: 860px;
+	height: 174px;
+
+	background: #C4C4C4;
+	border-radius: 5px;
+}
+
+#loadFile input{
+	background-color: #EDEAEA;
+}
+
+#loadFile input[value="выбрать файл"]{
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+	text-align: center;
+	color: #000000;
+}
+
+#submission{
+	margin-left: 650px;
+	width: 210px;
+}
+
+#submission input{
+	width: 210px;
+	height: 40px;
+
+	background: #41464E;
+	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.15);
+	border-radius: 5px;
+}
+
+#submission label{
+	position: relative;
+	width: 142px;
+	height: 33px;
+	left: 30px;
+	top: -38px;
+
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 33px;
+	color: #EDEAEA;
+}
+
+#table{
+	
+}

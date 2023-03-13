@@ -24,4 +24,14 @@ public class WebController {
         model.addAttribute("listClient",clientRepository.findAll());
         return "test";
     }
+
+    @GetMapping("/Indicators")
+    public String indicators(Model model){
+        return "Indicators";
+    }
+
+    @GetMapping("/Statement")
+    public String statement(Model model){
+        return "Statement";
+    }
 }

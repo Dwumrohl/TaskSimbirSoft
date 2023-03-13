@@ -14,6 +14,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -23,20 +25,20 @@ import java.util.Properties;
 //@EntityScan(basePackages = {"com.example.TaskSimbirSoft.models"})
 public class TaskSimbirSoftApplication {
 
-	@Configuration
-	public class JpaConfig {
-
-		@Bean
-		public DataSource dataSource()
-		{
-			DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-			dataSourceBuilder.driverClassName("org.postgresql.Driver");
-			dataSourceBuilder.url("jdbc:postgresql://localhost:5432/housing_and_utilities_app");
-			dataSourceBuilder.username("postgres");
-			dataSourceBuilder.password("12345");
-			return dataSourceBuilder.build();
-		}
-	}
+//	@Configuration
+//	public class JpaConfig {
+//
+//		@Bean
+//		public DataSource dataSource()
+//		{
+//			DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+//			dataSourceBuilder.driverClassName("org.postgresql.Driver");
+//			dataSourceBuilder.url("jdbc:postgresql://localhost:5432/housing_and_utilities_app");
+//			dataSourceBuilder.username("postgres");
+//			dataSourceBuilder.password("12345");
+//			return dataSourceBuilder.build();
+//		}
+//	}
 
 
 	public static void main(String[] args) {

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Подача показателей</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/styles/StyleApp.css}">
+	<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+  <div id="form_background">
+	<form>
+		<div id="nameForm">Показания</div>
+		<div id="address">
+			<div><label for="">Улица *</label><br><input name="" class="AddressFirstWidth" type="text" required></div>
+			<div><label for="">Дом *</label><br><input name="" class="AddressThirdWidth" type="text" required></div>
+			<div><label for="">Корпус</label><br><input name="" class="AddressThirdWidth" type="text"></div>
+			<div><label for="">Квартира *</label><br><input name="" class="AddressThirdWidth" type="text" required></div>
+		</div>
+		
+		<div id="table">
+			<div class="Column">
+				<div class="Name">Счетчик</div>
+				<div class="Row"></div>
+			</div>
+			<div class="Column">
+				<div class="Name">Предыдущее значение</div>
+				<div class="Row"></div>
+			</div>
+			<div class="Column">
+				<div class="Name">Текущее значение</div>
+				<div class="Row"></div>
+			</div>
+			
+			<div id="">
+				<div>+</div><div>Добавить счетчик</div>
+			</div>
+			<div id="">
+				<label for="">Счетчик</label>
+				<select name="">
+				  <option>...</option>
+				</select>
+				<label for="">Предыдущее значение</label><input name="" type="text">
+				<label for="">Текущее значение</label><input name="" type="text">
+			</div>
+			<div id="submission">
+				<input type="submit" class="Button1" value="" required>
+				<label>Отправить</label>
+			</div>
+		</div>
+	</form>
+	<div id="">* Обязательное поле</div>
+	</div>
+	<a id="" href="">Служба поддержки</a>
+  </body>
+</html>
