@@ -39,6 +39,10 @@ public class TaskSimbirSoftApplication {
 //			return dataSourceBuilder.build();
 //		}
 //	}
+@Bean
+public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	return new BCryptPasswordEncoder();
+}
 
 
 	public static void main(String[] args) {

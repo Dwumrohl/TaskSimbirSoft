@@ -6,10 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Builder
@@ -61,10 +58,16 @@ public class Client implements UserDetails {
     @OneToMany(mappedBy = "client")
     private Set<RequestClient> requestClients = new LinkedHashSet<>();
 
+
+
     public Client(Client client) {
+        this.email = client.getEmail();
+        this.password = client.getPassword();
+        this.role = client.getRole();
     }
 
-//
+
+    //
 //
 
 //    public Set<RequestClient> getRequestClients() {
@@ -158,7 +161,9 @@ public class Client implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role));
+        List<GrantedAuthority> listRole = new ArrayList<GrantedAuthority>();
+        listRole.add(new SimpleGrantedAuthority(role));
+        return listRole;
     }
 
     @Override
